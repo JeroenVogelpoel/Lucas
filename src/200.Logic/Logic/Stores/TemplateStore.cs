@@ -15,13 +15,28 @@ namespace DigitalFish.Lucas.Logic.Stores
             _templateRepositories = templateRepositories;
         }
 
+        public IEnumerable<string> List()
+        {
+            var output = Enumerable.Empty<string>();
+
+            foreach (var repository in _templateRepositories)
+            {
+                output = output.Concat(repository.List());
+            }
+
+            return output;
+        }
+
         public Template Find(string identifier)
         {
             Log.Verbose(
                 "Attempting to find template '{Identifier}'",
                 identifier);
 
-            return new Template(identifier);
+            //TODO: Related the identifier to the correct repository
+            return _templateRepositories
+                .First()
+                .Load(identifier);
         }
     }
 }
