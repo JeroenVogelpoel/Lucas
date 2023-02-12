@@ -72,14 +72,6 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
             actual.Identifier.Should().Be(KnownTemplates.First().Value.Identifier);
         }
 
-        public void Happy_Flow_Format()
-        {
-            // Arrange
-
-            // Act
-            //var actual = SUT
-        }
-
         private Mock<ITemplateRepository> defaultTemplateRepositoryMockBuilder()
         {
             var output = new Mock<ITemplateRepository>(MockBehavior.Strict);
