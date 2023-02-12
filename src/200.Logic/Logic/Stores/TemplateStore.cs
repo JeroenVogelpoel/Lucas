@@ -15,6 +15,7 @@ namespace DigitalFish.Lucas.Logic.Stores
             _templateRepositories = templateRepositories;
         }
 
+        /// <inheritdoc/>
         public IEnumerable<string> List()
         {
             var output = Enumerable.Empty<string>();
@@ -27,6 +28,7 @@ namespace DigitalFish.Lucas.Logic.Stores
             return output;
         }
 
+        /// <inheritdoc/>
         public Template Find(string identifier)
         {
             Log.Verbose(

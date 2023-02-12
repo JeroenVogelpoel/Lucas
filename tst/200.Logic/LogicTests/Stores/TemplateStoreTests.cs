@@ -14,17 +14,20 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
                 ["first-known-template"] = new Template(
                     "first-known-template",
                     "index.html",
-                    "passthru"),
+                    "Content #1",
+                    "Data #1"),
 
                 ["second-known-template"] = new Template(
                     "second-known-template",
                     "second.html",
-                    "passthru"),
+                    "Content #2",
+                    "Data #2"),
 
                 ["third-known-template"] = new Template(
                     "third-known-template",
                     "third.html",
-                    "passthru"),
+                    "Content #3",
+                    "Data #3"),
             };
 
         public TemplateStore SUT => new TemplateStore(
@@ -61,6 +64,14 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
             using var scope = new AssertionScope();
             actual.Should().NotBeNull()
                 .And.Be(KnownTemplates.First().Value);
+        }
+
+        public void Happy_Flow_Format()
+        {
+            // Arrange
+
+            // Act
+            //var actual = SUT
         }
 
         private Mock<ITemplateRepository> defaultTemplateRepositoryMockBuilder()

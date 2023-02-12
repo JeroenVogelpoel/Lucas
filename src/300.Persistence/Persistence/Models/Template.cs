@@ -3,8 +3,8 @@
     public record Template(
         string Identifier,
         string outputName,
-        string requestedFormatters)
+        string RawContent)
     {
-
+        public dynamic? Data { get; set; }
     }
 }
