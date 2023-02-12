@@ -11,23 +11,29 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
         public Dictionary<string, Template> KnownTemplates =>
             new Dictionary<string, Template>
             {
-                ["first-known-template"] = new Template(
-                    "first-known-template",
-                    "index.html",
-                    "Content #1",
-                    "Data #1"),
+                ["first-known-template"] = new Template
+                {
+                    Identifier = "first-known-template",
+                    OutputName = "index.html",
+                    Content = "Content #1",
+                    Data = "Data #1" 
+                },
 
-                ["second-known-template"] = new Template(
-                    "second-known-template",
-                    "second.html",
-                    "Content #2",
-                    "Data #2"),
+                ["second-known-template"] = new Template
+                {
+                    Identifier = "second-known-template",
+                    OutputName = "second.html",
+                    Content = "Content #2",
+                    Data = "Data #2"
+                },
 
-                ["third-known-template"] = new Template(
-                    "third-known-template",
-                    "third.html",
-                    "Content #3",
-                    "Data #3"),
+                ["third-known-template"] = new Template
+                {
+                    Identifier = "third-known-template",
+                    OutputName = "third.html",
+                    Content = "Content #3",
+                    Data = "Data #3"
+                }
             };
 
         public TemplateStore SUT => new TemplateStore(
@@ -62,8 +68,8 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
 
             // Assert
             using var scope = new AssertionScope();
-            actual.Should().NotBeNull()
-                .And.Be(KnownTemplates.First().Value);
+            actual.Should().NotBeNull();
+            actual.Identifier.Should().Be(KnownTemplates.First().Value.Identifier);
         }
 
         public void Happy_Flow_Format()

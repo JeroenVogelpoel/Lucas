@@ -13,12 +13,13 @@ namespace DigitalFish.Lucas.Tests.Logic.Handlers
         public void FormatTemplate_Happy_Flow()
         {
             // Arrange
-            var template = new Template(
-                "Identifier",
-                "index.html",
-                "lorem ipsum dolor sit amet",
-                string.Empty
-            );
+            var template = new Template
+            {
+                Identifier = "Identifier",
+                OutputName = "index.html",
+                Content = "lorem ipsum dolor sit amet",
+                Data = null
+            };
 
             var mockFormatter = new Mock<IFormatter>(MockBehavior.Strict);
 
