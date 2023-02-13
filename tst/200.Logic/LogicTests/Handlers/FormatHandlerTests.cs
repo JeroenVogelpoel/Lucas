@@ -1,9 +1,6 @@
-﻿using DigitalFish.Lucas.Logic.Formatters;
-using DigitalFish.Lucas.Logic.Formatters.Interfaces;
+﻿using DigitalFish.Lucas.Logic.Formatters.Interfaces;
 using DigitalFish.Lucas.Logic.Handlers;
 using DigitalFish.Lucas.Persistence.Models;
-using FluentAssertions;
-using FluentAssertions.Execution;
 
 namespace DigitalFish.Lucas.Tests.Logic.Handlers
 {
@@ -13,10 +10,8 @@ namespace DigitalFish.Lucas.Tests.Logic.Handlers
         public void FormatTemplate_Happy_Flow()
         {
             // Arrange
-            var template = new Template
+            var template = new Template("Identifier")
             {
-                Identifier = "Identifier",
-                OutputName = "index.html",
                 Content = "lorem ipsum dolor sit amet",
                 Data = null
             };

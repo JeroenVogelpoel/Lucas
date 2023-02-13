@@ -1,8 +1,6 @@
 ﻿using DigitalFish.Lucas.Logic.Stores;
 using DigitalFish.Lucas.Persistence.Models;
 using DigitalFish.Lucas.Persistence.Repositories.Interfaces;
-using FluentAssertions;
-using FluentAssertions.Execution;
 
 namespace DigitalFish.Lucas.Tests.Logic.Stores
 {
@@ -11,29 +9,9 @@ namespace DigitalFish.Lucas.Tests.Logic.Stores
         public Dictionary<string, Template> KnownTemplates =>
             new Dictionary<string, Template>
             {
-                ["first-known-template"] = new Template
-                {
-                    Identifier = "first-known-template",
-                    OutputName = "index.html",
-                    Content = "Content #1",
-                    Data = "Data #1" 
-                },
-
-                ["second-known-template"] = new Template
-                {
-                    Identifier = "second-known-template",
-                    OutputName = "second.html",
-                    Content = "Content #2",
-                    Data = "Data #2"
-                },
-
-                ["third-known-template"] = new Template
-                {
-                    Identifier = "third-known-template",
-                    OutputName = "third.html",
-                    Content = "Content #3",
-                    Data = "Data #3"
-                }
+                ["first-known-template"] = new Template("first-known-template"),
+                ["second-known-template"] = new Template("second-known-template"),
+                ["third-known-template"] = new Template("third-known-template")
             };
 
         public TemplateStore SUT => new TemplateStore(

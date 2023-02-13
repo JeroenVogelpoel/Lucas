@@ -2,12 +2,15 @@
 {
     public class Template
     {
-        public string Identifier { get; set; } = string.Empty;
+        public Template(string identifier)
+        {
+            Identifier = identifier;
+        }
 
-        public string OutputName { get; set; } = string.Empty;
+        public string Identifier { get; }
 
         public string Content { get; set; } = string.Empty;
 
-        public dynamic? Data { get; set; }
+        public TemplateData? Data { get; set; }
     }
 }
