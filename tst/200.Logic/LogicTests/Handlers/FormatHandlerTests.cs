@@ -1,4 +1,4 @@
-﻿using DigitalFish.Lucas.Logic.Formatters.Interfaces;
+﻿using DigitalFish.Lucas.Logic.Renderers.Interfaces;
 using DigitalFish.Lucas.Logic.Handlers;
 using DigitalFish.Lucas.Persistence.Models;
 
@@ -16,19 +16,19 @@ namespace DigitalFish.Lucas.Tests.Logic.Handlers
                 Data = null
             };
 
-            var mockFormatter = new Mock<IFormatter>(MockBehavior.Strict);
+            var mockFormatter = new Mock<IRenderer>(MockBehavior.Strict);
 
             mockFormatter
-                .Setup(m => m.Format(template))
+                .Setup(m => m.Render(template))
                 .Returns((Template input) => input);
 
-            var sut = new FormatHandler(new IFormatter[]
+            var sut = new RenderHandler(new IRenderer[]
             {
                 mockFormatter.Object
             });
 
             // Act
-            var actual = sut.FormatTemplate(template);
+            var actual = sut.RenderTemplate(template);
 
             // Assert
             using var scope = new AssertionScope();

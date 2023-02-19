@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using DigitalFish.Lucas.Logic.Formatters;
-using DigitalFish.Lucas.Logic.Formatters.Interfaces;
+using DigitalFish.Lucas.Logic.Renderers;
+using DigitalFish.Lucas.Logic.Renderers.Interfaces;
 using DigitalFish.Lucas.Logic.Stores;
 using DigitalFish.Lucas.Logic.Stores.Interfaces;
 
@@ -16,7 +16,7 @@ namespace DigitalFish.Lucas.UI.DotnetTool.DI
 
             containerBuilder.RegisterType<Passthru>()
                 .SingleInstance()
-                .As<IFormatter>();
+                .As<IRenderer>();
         }
     }
 }

@@ -19,6 +19,14 @@ namespace DigitalFish.Lucas.Tests.Logic.Handlers
 # Sample
   Target: {TemplateTarget} # comment
 
+  Renderers:
+    - passthru
+    - dummy
+    - dummy
+
+  CustomData:
+    Hello: World
+
 # multi?
 # line?
 # comment?
@@ -38,7 +46,11 @@ namespace DigitalFish.Lucas.Tests.Logic.Handlers
             actual.Identifier.Should().Be(TemplateIdentifier);
             actual.Content.Should().Be(TemplateContent);
             actual.Data.Should().NotBeNull();
-            actual.Data.Target.Should().Be(TemplateTarget);
+            actual.Data!.Target.Should().Be(TemplateTarget);
+
+            Assert.NotNull(actual.Data.CustomData);
+            Assert.NotNull(actual.Data.CustomData!["Hello"]);
+            Assert.Equal("World", actual.Data.CustomData!["Hello"]);
         }
 
         [Fact]

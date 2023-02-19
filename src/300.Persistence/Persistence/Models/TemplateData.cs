@@ -4,6 +4,8 @@
     {
         public string? Target { get; set; }
 
+        public IEnumerable<string>? Renderers { get; set; }
+
         public dynamic? CustomData { get; set; }
     }
 }
